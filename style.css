@@ -93,7 +93,7 @@ section{padding:64px 0}
 
 /* ---------- 1. HERO ---------- */
 .hero{padding:36px 0 56px;background:linear-gradient(180deg,var(--apoio) 0%,var(--branco) 100%)}
-.hero-grid{display:grid;gap:20px;grid-template-areas:"title" "sub" "media" "text" "cta"}
+.hero-grid{display:grid;gap:20px;grid-template-areas:"title" "sub" "media" "text" "cta";text-align:center}
 .hero-title{grid-area:title}
 .hero-sub{grid-area:sub;font-size:1.18rem;font-weight:600;color:var(--texto);line-height:1.45}
 .hero-media{grid-area:media;--ratio:805/537;margin:8px 0}
@@ -110,13 +110,29 @@ section{padding:64px 0}
 .micro .icon{width:16px;height:16px}
 
 /* ---------- 2. O QUE VOCÊ RECEBE ---------- */
-.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:40px}
-.gallery .media{--ratio:3/4;border:1px solid var(--borda)}
+.carousel{
+  margin:0 calc(-1 * var(--gutter)) 40px;padding:4px 0;
+  overflow-x:auto;scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+}
+.carousel::-webkit-scrollbar{display:none}
+.carousel-track{display:flex;width:max-content;padding-left:var(--gutter)}
+.carousel-item{flex:none;width:clamp(180px,56vw,250px);margin-right:14px}
+.carousel-item.media{--ratio:3/4;border:1px solid var(--borda)}
+.carousel--testimonials{margin-bottom:0;padding:8px 0 20px}
+.carousel--testimonials .carousel-item{width:clamp(240px,72vw,300px);margin:0 16px 0 0}
+.carousel.is-running{overflow:hidden}
+.carousel.is-running .carousel-track{animation:marquee var(--dur,30s) linear infinite}
+.carousel:focus-within .carousel-track{animation-play-state:paused}
+@media (hover:hover){.carousel:hover .carousel-track{animation-play-state:paused}}
+@keyframes marquee{to{transform:translateX(calc(-1 * var(--shift,0px)))}}
+@media (prefers-reduced-motion:reduce){.carousel-track{animation:none!important}}
 .zoomable:has(img){cursor:zoom-in}
 .receive-grid{display:grid;gap:32px}
 .receive-list{padding:28px 22px}
 .tagline{margin-top:24px;font-weight:700;color:var(--roxo);font-size:1.05rem}
-.ritmo{padding:32px 22px;background:var(--apoio);border-radius:var(--raio);display:grid;gap:16px;align-content:center}
+.ritmo{padding:32px 22px;background:var(--apoio);border-radius:var(--raio);display:grid;gap:16px;align-content:center;text-align:center}
 .ritmo p{color:var(--texto-suave)}
 .ritmo .btn{margin-top:8px}
 
@@ -128,9 +144,8 @@ section{padding:64px 0}
 .closing{margin-top:32px;font-size:1.15rem;font-weight:700;color:var(--roxo)}
 
 /* ---------- 4. PROVA SOCIAL ---------- */
-.testimonials{display:grid;gap:16px}
-.testimonial{padding:16px;display:grid;gap:14px}
-.testimonial .media{--ratio:9/16;max-height:520px;border-radius:var(--raio-sm)}
+.testimonial{padding:14px;display:grid;gap:14px;align-content:start}
+.testimonial .media{--ratio:9/16;border-radius:var(--raio-sm)}
 .testimonial-name{font-weight:700}
 .testimonial-name:empty,.testimonial-text:empty{display:none}
 .testimonial-text{color:var(--texto-suave);font-size:.98rem}
@@ -211,10 +226,8 @@ dialog.lightbox img{max-height:86vh;width:auto;margin:0 auto;border-radius:12px;
 /* ---------- Tablet / Desktop ---------- */
 @media (min-width:640px){
   :root{--gutter:28px}
-  .gallery{grid-template-columns:repeat(4,1fr)}
   .benefits{grid-template-columns:repeat(2,1fr)}
   .bonus-grid{grid-template-columns:repeat(2,1fr)}
-  .micro{justify-content:flex-start}
 }
 @media (min-width:900px){
   body{font-size:18px}
@@ -227,13 +240,14 @@ dialog.lightbox img{max-height:86vh;width:auto;margin:0 auto;border-radius:12px;
   }
   .hero-cta{align-self:start}
   .hero-cta .btn{width:auto;min-width:420px}
+  .hero-grid{text-align:left}
+  .micro{justify-content:flex-start}
   .hero-media{margin:0}
   .receive-grid{grid-template-columns:1.1fr 1fr;align-items:stretch}
   .receive-list{padding:36px}
   .ritmo{padding:40px}
   .benefits{grid-template-columns:repeat(4,1fr)}
   .benefit{flex-direction:column;padding:28px 24px}
-  .testimonials{grid-template-columns:repeat(3,1fr)}
   .bonus-grid{grid-template-columns:repeat(3,1fr);gap:24px}
   .plans{grid-template-columns:1fr 1.08fr;gap:28px}
   .plan{padding:36px 30px}

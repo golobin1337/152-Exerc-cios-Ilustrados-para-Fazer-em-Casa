@@ -63,14 +63,20 @@
       <p class="lead">Tudo organizado para você parar de perder tempo procurando exercícios e começar a cuidar do seu corpo.</p>
     </div>
 
-    <!-- AMOSTRAS DO PRODUTO (3:4, ~900×1200): fichas reais por dentro.
+    <!-- CARROSSEL DE AMOSTRAS (3:4, ~900×1200): fichas reais por dentro.
+         Rola sozinho em loop infinito; pausa ao passar o mouse ou focar.
+         Adicione quantos itens quiser — as cópias do loop são criadas pelo script.js.
          Clique amplia automaticamente quando houver <img>.
-         Ex.: <img src="images/ficha-01.webp" alt="..." width="900" height="1200" loading="lazy"> -->
-    <div class="gallery">
-      <div class="media zoomable"></div>
-      <div class="media zoomable"></div>
-      <div class="media zoomable"></div>
-      <div class="media zoomable"></div>
+         Ex.: <img src="assets/ficha-01.webp" alt="..." width="900" height="1200" loading="lazy"> -->
+    <div class="carousel" role="region" aria-label="Amostras do material">
+      <div class="carousel-track">
+        <div class="media zoomable carousel-item"></div>
+        <div class="media zoomable carousel-item"></div>
+        <div class="media zoomable carousel-item"></div>
+        <div class="media zoomable carousel-item"></div>
+        <div class="media zoomable carousel-item"></div>
+        <div class="media zoomable carousel-item"></div>
+      </div>
     </div>
 
     <div class="receive-grid">
@@ -138,28 +144,30 @@
     <div class="section-head center">
       <h2 id="depo-title">Veja a Experiência de Quem Já Começou!</h2>
     </div>
-    <div class="testimonials">
-      <figure class="card testimonial" style="margin:0">
-        <div class="media zoomable"></div>
-        <figcaption>
-          <p class="testimonial-name"></p>
-          <p class="testimonial-text"></p>
-        </figcaption>
-      </figure>
-      <figure class="card testimonial" style="margin:0">
-        <div class="media zoomable"></div>
-        <figcaption>
-          <p class="testimonial-name"></p>
-          <p class="testimonial-text"></p>
-        </figcaption>
-      </figure>
-      <figure class="card testimonial" style="margin:0">
-        <div class="media zoomable"></div>
-        <figcaption>
-          <p class="testimonial-name"></p>
-          <p class="testimonial-text"></p>
-        </figcaption>
-      </figure>
+    <div class="carousel carousel--testimonials" role="region" aria-label="Depoimentos">
+      <div class="carousel-track">
+        <figure class="card testimonial carousel-item">
+          <div class="media zoomable"></div>
+          <figcaption>
+            <p class="testimonial-name"></p>
+            <p class="testimonial-text"></p>
+          </figcaption>
+        </figure>
+        <figure class="card testimonial carousel-item">
+          <div class="media zoomable"></div>
+          <figcaption>
+            <p class="testimonial-name"></p>
+            <p class="testimonial-text"></p>
+          </figcaption>
+        </figure>
+        <figure class="card testimonial carousel-item">
+          <div class="media zoomable"></div>
+          <figcaption>
+            <p class="testimonial-name"></p>
+            <p class="testimonial-text"></p>
+          </figcaption>
+        </figure>
+      </div>
     </div>
   </div>
 </section>
@@ -263,7 +271,7 @@
 
       <!-- PLANO COMPLETO -->
       <article class="card plan plan--full" aria-labelledby="plano-completo">
-        <span class="badge">MAIS VANTAJOSO</span>
+        <span class="badge">MAIS ESCOLHIDO</span>
         <div class="media media--contain"></div><!-- images/plano-completo.webp (16:10) -->
         <h3 id="plano-completo" class="plan-title">PLANO COMPLETO</h3>
         <p class="plan-sub">152 Fichas Ilustradas + Todos os 6 Bônus</p>
