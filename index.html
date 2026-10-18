@@ -70,19 +70,21 @@
       <p class="lead">Tudo organizado para você parar de perder tempo procurando exercícios e começar a cuidar do seu corpo.</p>
     </div>
 
-    <!-- CARROSSEL DE AMOSTRAS (3:4, ~900×1200): fichas reais por dentro.
+    <!-- CARROSSEL DE AMOSTRAS (formato A4, 447×632): fichas reais por dentro.
          Rola sozinho em loop infinito; pausa ao passar o mouse ou focar.
          Adicione quantos itens quiser — as cópias do loop são criadas pelo script.js.
          Clique amplia automaticamente quando houver <img>.
-         Ex.: <img src="assets/ficha-01.webp" alt="..." width="900" height="1200" loading="lazy"> -->
+         Para adicionar: copie uma linha abaixo e troque o src e o alt. -->
     <div class="carousel" role="region" aria-label="Amostras do material">
       <div class="carousel-track">
-        <div class="media zoomable carousel-item"></div>
-        <div class="media zoomable carousel-item"></div>
-        <div class="media zoomable carousel-item"></div>
-        <div class="media zoomable carousel-item"></div>
-        <div class="media zoomable carousel-item"></div>
-        <div class="media zoomable carousel-item"></div>
+        <div class="media zoomable carousel-item"><img src="assets/39674b80_03a2_4975_a370_444a09cf0eae_1.webp" alt="Ficha ilustrada do exercício 2: Afundo, com passo a passo, objetivo e cuidados" width="447" height="632" loading="lazy" decoding="async"></div>
+        <div class="media zoomable carousel-item"><img src="assets/15acb2fc_60c3_4391_9108_024a2d5dc300_1.webp" alt="Ficha ilustrada do exercício 5: Abdominal Bicicleta, com passo a passo, objetivo e cuidados" width="447" height="632" loading="lazy" decoding="async"></div>
+        <div class="media zoomable carousel-item"><img src="assets/f8d02dbc_3956_462e_9bdd_2e9b1cb7a0ef_1.webp" alt="Ficha ilustrada do exercício 12: Elevação Lateral de Perna, com passo a passo, objetivo e cuidados" width="447" height="632" loading="lazy" decoding="async"></div>
+        <div class="media zoomable carousel-item"><img src="assets/1ebd75d3_8b1a_40be_a433_d5c2724ca428_1.webp" alt="Ficha ilustrada do exercício 19: Agachamento Sumô, com passo a passo, objetivo e cuidados" width="447" height="632" loading="lazy" decoding="async"></div>
+        <div class="media zoomable carousel-item"><img src="assets/2494d37c_afea_4e2f_b533_db010fe88e8e_1.webp" alt="Ficha ilustrada do exercício 27: Prancha Lateral, com passo a passo, objetivo e cuidados" width="447" height="632" loading="lazy" decoding="async"></div>
+        <div class="media zoomable carousel-item"><img src="assets/be873656_2728_47f9_890f_6b8e5848b257_1.webp" alt="Ficha ilustrada do exercício 44: Burpee Adaptado, com passo a passo, objetivo e cuidados" width="447" height="632" loading="lazy" decoding="async"></div>
+        <div class="media zoomable carousel-item"><img src="assets/3269b1ae_f17e_4f2d_88c9_b66af41b493b_1.webp" alt="Ficha ilustrada do exercício 57: Escalador, com passo a passo, objetivo e cuidados" width="447" height="632" loading="lazy" decoding="async"></div>
+        <div class="media zoomable carousel-item"><img src="assets/75761a24_af96_4bca_b008_bf409f4fbcff_1.webp" alt="Ficha ilustrada do exercício 83: Abdução de Quadril, com passo a passo, objetivo e cuidados" width="447" height="632" loading="lazy" decoding="async"></div>
       </div>
     </div>
 
@@ -250,7 +252,7 @@
 <section id="planos" aria-labelledby="planos-title">
   <div class="wrap">
     <div class="section-head center">
-      <h2 id="planos-title">Comece Hoje a Cuidar <br>do Seu Corpo Sem Sair de Casa!</h2>
+      <h2 id="planos-title">Comece Hoje a Cuidar <br>do Seu Corpo Sem Sair <br>de Casa!</h2>
     </div>
 
     <div class="plans">
@@ -288,7 +290,7 @@
           <li>65 exercícios ilustrados.</li>
           <li>Organizados por partes do corpo.</li>
           <li>Instruções de execução.</li>
-          <li>PDF em alta resolução.</li>
+
           <li>Acesso imediato e vitalício.</li>
           <li>Impressão ilimitada.</li>
           <li>Garantia de 7 dias.</li>
@@ -414,6 +416,19 @@
     <p class="footer-copy">© 2026 152 Exercícios Ilustrados. Todos os direitos reservados.</p>
   </div>
 </footer>
+
+<!-- =========================================================
+     BARRA FIXA DE OFERTA
+     Aparece depois que a pessoa rola além do card do Plano Básico.
+     ========================================================= -->
+<div class="sticky-offer" role="region" aria-label="Oferta do Plano Completo" hidden>
+  <div class="sticky-offer-info">
+    <p class="sticky-offer-name">Plano Completo + 6 Bônus</p>
+    <p class="sticky-offer-from">de <s>R$ 319,00</s> por apenas</p>
+    <p class="sticky-offer-price">R$ 19,90</p>
+  </div>
+  <a class="sticky-offer-btn" href="#planos" data-checkout="completo">QUERO AGORA</a>
+</div>
 
 <dialog class="lightbox" aria-label="Imagem ampliada">
   <button class="lb-close" type="button" aria-label="Fechar">

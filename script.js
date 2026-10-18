@@ -102,4 +102,23 @@
       t = setTimeout(build, 200);
     });
   });
+
+  /* ---- Barra fixa: aparece depois que o card do Plano Básico sai da tela por cima ---- */
+  var bar = document.querySelector('.sticky-offer');
+  var trigger = document.querySelector('.plan--basic');
+  if(bar && trigger){
+    bar.hidden = false;
+    var ticking = false;
+    function update(){
+      ticking = false;
+      var show = trigger.getBoundingClientRect().bottom < 0;
+      bar.classList.toggle('is-visible', show);
+      document.body.classList.toggle('has-sticky', show);
+    }
+    window.addEventListener('scroll', function(){
+      if(!ticking){ ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
 })();
