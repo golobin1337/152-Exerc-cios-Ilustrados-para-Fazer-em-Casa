@@ -57,6 +57,16 @@ section{padding:64px 0}
 .btn svg{flex:none}
 .btn--outline{background:var(--branco);color:var(--roxo);border:2px solid var(--roxo);box-shadow:none}
 .btn--outline:hover{background:var(--lilas-claro)}
+/* Texto em uma linha: a fonte reduz levemente em telas estreitas */
+.btn--one-line{white-space:nowrap;padding-left:14px;padding-right:14px;font-size:clamp(11px,3.6vw,1.02rem);letter-spacing:0}
+/* Pulsar suave (desativado para quem prefere menos movimento) */
+.btn--pulse{animation:pulse 2.4s ease-in-out infinite}
+.btn--pulse:hover,.btn--pulse:focus-visible{animation-play-state:paused}
+@keyframes pulse{
+  0%,100%{transform:scale(1);box-shadow:0 6px 18px rgba(103,58,183,.28),0 0 0 0 rgba(103,58,183,.35)}
+  50%{transform:scale(1.03);box-shadow:0 8px 22px rgba(103,58,183,.32),0 0 0 10px rgba(103,58,183,0)}
+}
+@media (prefers-reduced-motion:reduce){.btn--pulse{animation:none}}
 
 /* ---------- Placeholders de mídia ----------
    Para substituir: coloque um <img> dentro do .media.
@@ -153,7 +163,9 @@ section{padding:64px 0}
 /* ---------- 5. BÔNUS ---------- */
 .bonus-grid{display:grid;gap:18px}
 .bonus{padding:16px 16px 22px;display:grid;gap:14px;align-content:start}
-.bonus .media{--ratio:4/3;border-radius:var(--raio-sm)}
+.bonus .media{--ratio:3/2;border-radius:var(--raio-sm)}
+.bonus-media:has(img){background:linear-gradient(145deg,#F6F2FC 0%,#ECE4F8 100%)}
+.bonus-media img{padding:10px}
 .bonus h3{font-size:1.15rem}
 .bonus p{color:var(--texto-suave);font-size:.98rem}
 .bonus-price{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:4px;font-weight:600}
@@ -188,7 +200,7 @@ section{padding:64px 0}
 }
 
 /* ---------- 7. GARANTIA ---------- */
-.guarantees{display:grid;gap:18px;max-width:960px;margin:0 auto}
+.guarantees{display:grid;gap:18px;max-width:620px;margin:0 auto}
 .guarantee{padding:26px 22px;display:grid;gap:18px;justify-items:center;text-align:center;box-shadow:none}
 .guarantee h3{font-size:1.2rem}
 .guarantee p{color:var(--texto-suave)}
@@ -249,9 +261,8 @@ dialog.lightbox img{max-height:86vh;width:auto;margin:0 auto;border-radius:12px;
   .benefits{grid-template-columns:repeat(4,1fr)}
   .benefit{flex-direction:column;padding:28px 24px}
   .bonus-grid{grid-template-columns:repeat(3,1fr);gap:24px}
-  .plans{grid-template-columns:1fr 1.08fr;gap:28px}
+  .plans{grid-template-columns:1.08fr 1fr;gap:28px}
   .plan{padding:36px 30px}
   .plan--basic{margin-top:28px}
-  .guarantees{grid-template-columns:1fr 1fr;gap:28px}
   .guarantee{grid-template-columns:auto 1fr;justify-items:start;text-align:left;align-items:center;padding:32px}
 }
