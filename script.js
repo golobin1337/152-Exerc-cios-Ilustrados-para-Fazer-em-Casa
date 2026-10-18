@@ -4,8 +4,8 @@
      Enquanto estiverem vazias, os botões rolam até a seção de planos.
      ================================================================ */
   window.CONFIG = {
-    CHECKOUT_BASICO:   "",
-    CHECKOUT_COMPLETO: ""
+    CHECKOUT_BASICO:   "https://pay.wiapy.com/JIvXfLv6ySsA",
+    CHECKOUT_COMPLETO: "https://pay.wiapy.com/PZElfwHoItYL"
   };
 
 (function(){
