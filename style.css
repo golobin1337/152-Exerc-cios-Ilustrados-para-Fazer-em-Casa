@@ -161,6 +161,9 @@ section{padding:64px 0}
 /* ---------- 4. PROVA SOCIAL ---------- */
 .testimonial{padding:14px;display:grid;gap:14px;align-content:start}
 .testimonial .media{--ratio:9/16;border-radius:var(--raio-sm)}
+.testimonial .media:has(img){aspect-ratio:auto}
+.testimonial .media img{height:auto}
+.carousel--testimonials .carousel-track{align-items:center}
 .testimonial-name{font-weight:700}
 .testimonial-name:empty,.testimonial-text:empty{display:none}
 .testimonial-text{color:var(--texto-suave);font-size:.98rem}
