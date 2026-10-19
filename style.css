@@ -185,6 +185,7 @@ section{padding:64px 0}
 }
 
 /* ---------- Ancoragem de valor ---------- */
+.value-section{padding-bottom:20px}
 .value-card{max-width:760px;margin:0 auto;padding:0;overflow:hidden}
 .value-table{width:100%;border-collapse:collapse;font-size:.95rem}
 .value-table th,.value-table td{padding:14px 20px;text-align:left;vertical-align:middle}
