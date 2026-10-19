@@ -191,7 +191,9 @@ section{padding:64px 0}
 .value-table tbody td:last-child{color:var(--texto-suave);font-weight:600}
 .value-table tfoot th,.value-table tfoot td{background:var(--lilas-claro);font-weight:800;font-size:1.05rem;color:var(--texto)}
 .value-final{max-width:680px;margin:32px auto 0;text-align:center;font-size:1.1rem;line-height:1.6}
-.value-price{color:var(--roxo);font-size:1.35em;white-space:nowrap}
+.value-final strong{color:var(--roxo)}
+.value-arrow{display:flex;justify-content:center;width:48px;height:48px;margin:18px auto 0;align-items:center;border-radius:50%}
+.value-arrow .icon{width:30px;height:30px;stroke-width:2}
 @media (max-width:420px){.value-table th,.value-table td{padding:12px 14px}.value-table{font-size:.9rem}}
 
 /* ---------- 6. PLANOS ---------- */
@@ -205,6 +207,7 @@ section{padding:64px 0}
 .price-from{color:var(--texto-suave);font-size:.98rem}
 .price-from s{font-weight:600}
 .price{font-size:clamp(2.7rem,11vw,3.6rem);font-weight:800;color:var(--texto);letter-spacing:-.03em;line-height:1.1;margin:4px 0}
+.plan-trust{justify-content:center!important;margin-top:-6px}
 .price-note{font-size:.92rem;color:var(--texto-suave);font-weight:500;display:inline-flex;align-items:center;gap:6px}
 .price-note .icon{width:16px;height:16px}
 .plan--basic{box-shadow:none}
