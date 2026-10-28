@@ -62,10 +62,13 @@
   var SPEED = 40; /* pixels por segundo */
   var reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  var hasIO = 'IntersectionObserver' in window;
+
   document.querySelectorAll('.carousel').forEach(function(root){
     var track = root.querySelector('.carousel-track');
     var originals = Array.prototype.slice.call(track.children);
     if(reduceMotion || !originals.length) return;
+    var started = false;
 
     function build(){
       track.querySelectorAll('[data-clone]').forEach(function(n){ n.remove(); });
@@ -93,14 +96,28 @@
       root.classList.add('is-running');
     }
 
-    build();
-    var lastW = window.innerWidth, t;
-    window.addEventListener('resize', function(){
-      if(window.innerWidth === lastW) return;
-      lastW = window.innerWidth;
-      clearTimeout(t);
-      t = setTimeout(build, 200);
-    });
+    function start(){
+      if(started) return;
+      started = true;
+      build();
+      var lastW = window.innerWidth, t;
+      window.addEventListener('resize', function(){
+        if(window.innerWidth === lastW) return;
+        lastW = window.innerWidth;
+        clearTimeout(t);
+        t = setTimeout(build, 200);
+      });
+    }
+
+    /* Só monta o carrossel quando ele chega perto da tela,
+       e pausa a animação quando ele sai de vista (economiza processamento) */
+    if(!hasIO){ start(); return; }
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting) start();
+        root.classList.toggle('is-offscreen', !en.isIntersecting);
+      });
+    }, { rootMargin: '300px 0px' }).observe(root);
   });
 
   /* ---- Barra fixa: aparece depois que o card do Plano Básico sai da tela por cima ---- */
@@ -108,17 +125,20 @@
   var trigger = document.querySelector('.plan--basic');
   if(bar && trigger){
     bar.hidden = false;
-    var ticking = false;
-    function update(){
-      ticking = false;
-      var show = trigger.getBoundingClientRect().bottom < 0;
+    function setBar(show){
       bar.classList.toggle('is-visible', show);
       document.body.classList.toggle('has-sticky', show);
     }
-    window.addEventListener('scroll', function(){
-      if(!ticking){ ticking = true; requestAnimationFrame(update); }
-    }, { passive: true });
-    window.addEventListener('resize', update);
-    update();
+    if(hasIO){
+      /* O navegador avisa quando o card entra/sai da tela — sem medir a cada rolagem */
+      new IntersectionObserver(function(entries){
+        var en = entries[0];
+        setBar(!en.isIntersecting && en.boundingClientRect.bottom < 0);
+      }).observe(trigger);
+    }else{
+      window.addEventListener('scroll', function(){
+        setBar(trigger.getBoundingClientRect().bottom < 0);
+      }, { passive: true });
+    }
   }
 })();

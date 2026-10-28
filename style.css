@@ -151,7 +151,7 @@ section{padding:64px 0}
 .carousel--testimonials .carousel-item{width:clamp(240px,72vw,300px);margin:0 16px 0 0}
 .carousel.is-running{overflow:hidden}
 .carousel.is-running .carousel-track{animation:marquee var(--dur,30s) linear infinite}
-.carousel:focus-within .carousel-track{animation-play-state:paused}
+.carousel:focus-within .carousel-track,.carousel.is-offscreen .carousel-track{animation-play-state:paused}
 @media (hover:hover){.carousel:hover .carousel-track{animation-play-state:paused}}
 @keyframes marquee{to{transform:translateX(calc(-1 * var(--shift,0px)))}}
 @media (prefers-reduced-motion:reduce){.carousel-track{animation:none!important}}
